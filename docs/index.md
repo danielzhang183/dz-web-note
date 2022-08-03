@@ -4,7 +4,7 @@ layout: home
 hero: 
   name: Web Notes
   text: Related to Vue、React、HTTP or ToolKit stuff
-  tagline: only sort of recently learning knowledges...
+  tagline: I wanna a better job & higher paid.
   actions:
     - theme: brand
       text: Vue

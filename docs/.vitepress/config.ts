@@ -9,7 +9,6 @@ export default defineConfig({
   },
   title: 'Web Notes',
   lang: 'zh-CN',
-  description: 'Sort of my recently learning notes',
   lastUpdated: true,
   themeConfig: {
     nav: [
@@ -20,22 +19,40 @@ export default defineConfig({
         ],
       },
       { text: 'Algorithm', link: '/algorithm/index' },
+      { text: 'Typescript', link: '/typescript/index' },
+      { text: 'HTTP', link: '/http/index' },
+      { text: 'ToolKit', link: '/tool/index' },
     ],
     sidebar: [
-      {
-        text: 'Source Code',
-        items: [
-          { text: 'Core Engine', link: '/introduction' },
-          { text: 'Getting Started', link: '/getting-started' },
-        ],
-      },
+      // {
+      //   text: 'Source Code',
+      //   items: [
+      //     { text: 'Core Engine', link: '/introduction' },
+      //     { text: 'Getting Started', link: '/getting-started' },
+      //   ],
+      // },
       {
         text: 'Algorithm',
         items: [
+          { text: 'Overview', link: '/algorithm/index' },
           { text: 'Data Structure', link: '/algorithm/data-structure' },
           { text: 'Common Algorithm', link: '/algorithm/common-algorithm' },
-          { text: 'Interview', link: '/algorithm/interview' },
           { text: 'Used In Framework', link: '/algorithm/used-in-framework' },
+          { text: 'FAQ', link: '/algorithm/interview' },
+        ],
+      },
+      {
+        text: 'Typescript',
+        items: [
+          { text: 'Overview', link: '/typescript/index' },
+          { text: 'Challenges', link: '/typescript/challenges' },
+        ],
+      },
+      {
+        text: 'HTTP',
+        items: [
+          { text: 'Overview', link: '/http/index' },
+          { text: 'FAQ', link: '/http/FAQ' },
         ],
       },
     ],
