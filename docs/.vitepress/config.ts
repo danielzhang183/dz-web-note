@@ -33,7 +33,6 @@ export default defineConfig({
   },
 })
 
-
 function nav() {
   return [
     { text: 'Vue', link: '/vue/index', activeMatch: '/vue/' },
@@ -52,8 +51,8 @@ function sidebarVue() {
       items: [
         { text: 'Core Engine', link: '/vue/core-engine' },
         { text: 'Core Patch Logics', link: '/vue/core-patch-logics' },
-      ]
-    }
+      ],
+    },
   ]
 }
 
@@ -67,7 +66,7 @@ function sidebarAlgorithm() {
         { text: 'Used In Framework', link: '/algorithm/used-in-framework' },
         { text: 'FAQ', link: '/algorithm/interview' },
       ],
-    }
+    },
   ]
 }
 
@@ -77,8 +76,8 @@ function sidebarTypescript() {
       text: 'Typscript',
       items: [
         { text: 'Challenges', link: '/typescript/challenges' },
-      ]
-    }
+      ],
+    },
   ]
 }
 
@@ -88,8 +87,8 @@ function sidebarHttp() {
       text: 'HTTP',
       items: [
         { text: 'FAQ', link: '/http/FAQ' },
-      ]
-    }
+      ],
+    },
   ]
 }
 
@@ -101,6 +100,6 @@ function sidebarToolKit() {
         { text: 'Vite Plugins', link: '/tool/vite-plugins' },
         { text: 'Recommend Repos', link: '/tool/repos' },
       ],
-    }
+    },
   ]
 }

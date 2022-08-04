@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Web Notes
   text: Build up with web application needy knowledge
-  tagline: I wanna a better job & higher paid.
+  tagline: This is the way...
   actions:
     - theme: brand
       text: Vue
