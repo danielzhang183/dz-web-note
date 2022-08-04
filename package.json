@@ -1,6 +1,7 @@
 {
   "name": "dz-web-note",
   "version": "1.0.0",
+  "packageManager": "7.8.0",
   "description": "",
   "author": "Dylan Zhang",
   "license": "ISC",
