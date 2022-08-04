@@ -1,5 +1,5 @@
 ---
-doc: 'Data Structure' 
+next: 'Data Structure | Web Notes'
 ---
 
 # Algorithm

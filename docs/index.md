@@ -1,24 +1,34 @@
 ---
 layout: home
 
-hero: 
+hero:
   name: Web Notes
-  text: Related to Vue、React、HTTP or ToolKit stuff
+  text: Build up with web application needy knowledge
   tagline: I wanna a better job & higher paid.
   actions:
     - theme: brand
       text: Vue
-      link: /vue/source
+      link: /vue/indx
     - theme: alt
-      text: React
-      link: 
+      text: Algorithm
+      link: /algorithm/index
+    - theme: alt
+      text: Typescript
+      link: /typescript/index
     - theme: alt
       text: HTTP
-      link: 
+      link: /http/index
+    - theme: alt
+      text: ToolKit
+      link: /tool/index
 
-features: 
+features:
   - title: Vue
-    details: Vue3 组件库构建流程...
-  - title: React
-    details: Vue3 组件库测试...
+    details: BalaBaBala
+  - title: Algorithm
+    details: BalaBaBala
+  - title: Typescript
+    details: BalaBaBala
+  - title: HTTP
+    details: BalaBaBala
 ---

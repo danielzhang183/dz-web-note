@@ -7,55 +7,18 @@ export default defineConfig({
       md.use(require('markdown-it-task-lists'))
     },
   },
+  lang: 'en-US',
   title: 'Web Notes',
-  lang: 'zh-CN',
   lastUpdated: true,
   themeConfig: {
-    nav: [
-      {
-        text: 'Vue3',
-        items: [
-          { text: 'Source Code', link: '/vue/source-code' },
-        ],
-      },
-      { text: 'Algorithm', link: '/algorithm/index' },
-      { text: 'Typescript', link: '/typescript/index' },
-      { text: 'HTTP', link: '/http/index' },
-      { text: 'ToolKit', link: '/tool/index' },
-    ],
-    sidebar: [
-      // {
-      //   text: 'Source Code',
-      //   items: [
-      //     { text: 'Core Engine', link: '/introduction' },
-      //     { text: 'Getting Started', link: '/getting-started' },
-      //   ],
-      // },
-      {
-        text: 'Algorithm',
-        items: [
-          { text: 'Overview', link: '/algorithm/index' },
-          { text: 'Data Structure', link: '/algorithm/data-structure' },
-          { text: 'Common Algorithm', link: '/algorithm/common-algorithm' },
-          { text: 'Used In Framework', link: '/algorithm/used-in-framework' },
-          { text: 'FAQ', link: '/algorithm/interview' },
-        ],
-      },
-      {
-        text: 'Typescript',
-        items: [
-          { text: 'Overview', link: '/typescript/index' },
-          { text: 'Challenges', link: '/typescript/challenges' },
-        ],
-      },
-      {
-        text: 'HTTP',
-        items: [
-          { text: 'Overview', link: '/http/index' },
-          { text: 'FAQ', link: '/http/FAQ' },
-        ],
-      },
-    ],
+    nav: nav(),
+    sidebar: {
+      '/vue/': sidebarVue(),
+      '/algorithm/': sidebarAlgorithm(),
+      '/typescript/': sidebarTypescript(),
+      '/http/': sidebarHttp(),
+      '/tool/': sidebarToolKit(),
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/danielzhang183' },
     ],
@@ -67,6 +30,77 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2019-present Dylan Zhang',
     },
-    lastUpdatedText: 'Updated Date',
   },
 })
+
+
+function nav() {
+  return [
+    { text: 'Vue', link: '/vue/index', activeMatch: '/vue/' },
+    { text: 'Algorithm', link: '/algorithm/index', activeMatch: '/algorithm/' },
+    { text: 'Typescript', link: '/typescript/index', activeMatch: '/typescript/' },
+    { text: 'HTTP', link: '/http/index', activeMatch: '/http/' },
+    { text: 'ToolKit', link: '/tool/index', activeMatch: '/tool/' },
+  ]
+}
+
+function sidebarVue() {
+  return [
+    {
+      text: 'Source Code',
+      collapsible: true,
+      items: [
+        { text: 'Core Engine', link: '/vue/core-engine' },
+        { text: 'Core Patch Logics', link: '/vue/core-patch-logics' },
+      ]
+    }
+  ]
+}
+
+function sidebarAlgorithm() {
+  return [
+    {
+      text: 'Algorithm',
+      items: [
+        { text: 'Data Structure', link: '/algorithm/data-structure' },
+        { text: 'Common Algorithm', link: '/algorithm/common-algorithm' },
+        { text: 'Used In Framework', link: '/algorithm/used-in-framework' },
+        { text: 'FAQ', link: '/algorithm/interview' },
+      ],
+    }
+  ]
+}
+
+function sidebarTypescript() {
+  return [
+    {
+      text: 'Typscript',
+      items: [
+        { text: 'Challenges', link: '/typescript/challenges' },
+      ]
+    }
+  ]
+}
+
+function sidebarHttp() {
+  return [
+    {
+      text: 'HTTP',
+      items: [
+        { text: 'FAQ', link: '/http/FAQ' },
+      ]
+    }
+  ]
+}
+
+function sidebarToolKit() {
+  return [
+    {
+      text: 'ToolKit',
+      items: [
+        { text: 'Vite Plugins', link: '/tool/vite-plugins' },
+        { text: 'Recommend Repos', link: '/tool/repos' },
+      ],
+    }
+  ]
+}
