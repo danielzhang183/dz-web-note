@@ -11,7 +11,8 @@
    ```bash
     # pnpm i
     ni
-    # pnpm i --prefer-offline, use local download package first, no resolve npm package process
+    # pnpm i --prefer-offline
+    # use local download package first, no resolve npm package process
     nio
    ```
 

@@ -49,8 +49,18 @@ function sidebarVue() {
       text: 'Source Code',
       collapsible: true,
       items: [
-        { text: 'Core Engine', link: '/vue/core-engine' },
-        { text: 'Core Patch Logics', link: '/vue/core-patch-logics' },
+        { text: 'Core Engine', link: '/vue/core/core-engine' },
+        { text: 'Core Patch Logics', link: '/vue/core/core-patch-logics' },
+      ],
+    },
+    {
+      text: 'Buildup From Scratch',
+      collapsible: true,
+      items: [
+        { text: 'Vue3 + Vite3', link: '/vue/buildup/init-project' },
+        { text: 'Add Docs', link: '/vue/buildup/init-project-docs' },
+        { text: 'Add Playground', link: '/vue/buildup/init-project-playground' },
+        { text: 'All In One', link: '/vue/buildup/all-in-one' },
       ],
     },
   ]
