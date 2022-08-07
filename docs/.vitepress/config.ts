@@ -86,6 +86,7 @@ function sidebarTypescript() {
       text: 'Typscript',
       items: [
         { text: 'Challenges', link: '/typescript/challenges' },
+        { text: 'Tricks', link: '/typescript/tricks' },
       ],
     },
   ]

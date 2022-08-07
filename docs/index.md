@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: Web Notes
-  text: Build up with web application needy knowledge
-  tagline: This is the way...
+  text: frontender needy knowledge
+  tagline: this is the way...
   actions:
     - theme: brand
       text: Vue
