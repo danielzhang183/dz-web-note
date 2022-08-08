@@ -58,8 +58,9 @@ function sidebarVue() {
       collapsible: true,
       items: [
         { text: 'Vue3 + Vite3', link: '/vue/buildup/init-project' },
-        { text: 'Add Docs', link: '/vue/buildup/init-project-docs' },
-        { text: 'Add Playground', link: '/vue/buildup/init-project-playground' },
+        { text: 'Add Modules', link: '/vue/buildup/add-modules' },
+        { text: 'Add Docs', link: '/vue/buildup/add-docs' },
+        { text: 'Add Playground', link: '/vue/buildup/add-playground' },
         { text: 'All In One', link: '/vue/buildup/all-in-one' },
       ],
     },

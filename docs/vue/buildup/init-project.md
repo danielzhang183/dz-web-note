@@ -11,7 +11,7 @@ npm install -g pnpm
 II. use vite create project
 
 ```bash
-pnpm create vite vite-starter --template vite+ts
+pnpm create vite vite-starter --template vue-ts
 cd vite-starter
 ```
 
@@ -69,7 +69,59 @@ IV. create `.vscode/settings.json`
 }
 ```
 
-## Auto Generated Router
+### typescript
+
+I. install
+
+```bash
+pnpm add -D typescript
+pnpm add -D vue-tsc
+```
+
+II. generate `tsconfig.json`
+
+```bash
+pnpx tsc --init
+```
+
+III. config `tsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "types": [
+      "vite/client",
+      "vue/ref-macros"
+    ]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+```
+
+IV. add script for `package.json`
+
+```json
+{
+  "script": {
+    "typecheck": "vue-tsc --noEmit"
+  }
+}
+```
+
+## Auto Generate Router
 
 I. install `vue-router`
 
@@ -389,6 +441,65 @@ II. config `.vscode/extension.json`
     "EditorConfig.EditorConfig"
   ]
 }
+```
+
+## Integrated CI
+
+I. create `.github/FUNDING.yml`
+
+```yaml
+github: danielzhang183
+```
+
+II. create `.github/workflows/ci.yml`
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        node_version: [16.x]
+        os: [ubuntu-latest]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm i
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: TypeCheck
+        run: pnpm run typecheck
 ```
 
 ## Config Deploy - Netlify
