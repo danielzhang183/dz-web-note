@@ -121,6 +121,81 @@ IV. add script for `package.json`
 }
 ```
 
+## Config UnoCSS
+
+Pre
+
+```bash
+pnpm add -D @iconify-json/carbon
+```
+
+I. install
+
+```bash
+pnpm add -D UnoCSS
+pnpm add -D @unocss/reset
+```
+
+II. config `vite.config.ts`
+
+```ts
+import Unocss from 'unocss/vite'
+
+export default defineConfig({
+  plugins: [
+    // https://github.com/antfu/unocss
+    Unocss(),
+  ],
+})
+```
+
+III. refine `main.ts`
+
+```ts
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
+```
+
+IV. create `unocss.config.ts`
+
+```ts
+import {
+  defineConfig,
+  presetAttributify,
+  presetIcons,
+  presetUno,
+  presetWebFonts,
+  // transformerDirectives,
+  // transformerVariantGroup,
+} from 'unocss'
+
+export default defineConfig({
+  shortcuts: [
+    ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
+    ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'],
+  ],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+    }),
+    presetWebFonts({
+      fonts: {
+        sans: 'DM Sans',
+        serif: 'DM Serif Display',
+        mono: 'DM Mono',
+      },
+    }),
+  ],
+  // transformers: [
+  //   transformerDirectives(),
+  //   transformerVariantGroup(),
+  // ],
+})
+```
+
 ## Auto Generate Router
 
 I. install `vue-router`
@@ -182,16 +257,57 @@ V. config `tsconfig.json`
 VI. create `pages/index.vue`
 
 ```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const name = ref('')
+
+const router = useRouter()
+const go = () => {
+  if (name.value)
+    router.push(`/hi/${encodeURIComponent(name.value)}`)
+}
+</script>
+
 <template>
   <div>
+    <div i-carbon-campsite text-4xl inline-block />
     <p>
       <a rel="noreferrer" href="https://github.com/danielzhang183/vite-starter" target="_blank">
-        Vite Starter
+        Vite Lite Starter
       </a>
     </p>
     <p>
-      <em>Opinionated Vite Starter Template</em>
+      <em text-sm op75>Opinionated Vite Starter Template</em>
     </p>
+
+    <div py-4 />
+
+    <input
+      id="input"
+      v-model="name"
+      placeholder="What's your name?"
+      type="text"
+      autocomplete="false"
+      p="x-4 y-2"
+      w="250px"
+      text="center"
+      bg="transparent"
+      border="~ rounded gray-200 dark:gray-700"
+      outline="none active:none"
+      @keydown.enter="go"
+    >
+
+    <div>
+      <button
+        class="m-3 text-sm btn"
+        :disabled="!name"
+        @click="go"
+      >
+        Go
+      </button>
+    </div>
   </div>
 </template>
 ```
@@ -290,6 +406,7 @@ import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
   plugins: [
+    // https://github.com/antfu/vite-plugin-components
     Components({
       dts: true,
     }),
@@ -335,86 +452,32 @@ AutoImport({
   // Filepath to generate corresponding .d.ts file.
   // Defaults to './auto-imports.d.ts' when `typescript` is installed locally.
   // Set `false` to disable.
-  dts: './auto-imports.d.ts',
+  dts: true,
   // Auto import inside Vue template
   // see https://github.com/unjs/unimport/pull/15 and https://github.com/unjs/unimport/pull/72
   vueTemplate: true,
 })
 ```
 
-## Config UnoCSS
-
-Pre
-
-```bash
-pnpm add -D @iconify-json/carbon
-```
-
-I. install
-
-```bash
-pnpm add -D UnoCSS
-pnpm add -D @unocss/reset
-```
-
-II. config `vite.config.ts`
+III. create `src/composables/dark.ts`
 
 ```ts
-import Unocss from 'unocss/vite'
-
-export default defineConfig({
-  plugins: [
-    // https://github.com/antfu/unocss
-    Unocss(),
-  ],
-})
+export const isDark = useDark()
+export const toggleDark = useToggle(isDark)
 ```
 
-III. refine `main.ts`
+IV. create `src/composables/index.ts`
 
 ```ts
-import '@unocss/reset/tailwind.css'
-import 'uno.css'
+export * from './dark'
 ```
 
-IV. create `unocss.config.ts`
+V. refine `src/components/Footer.vue`
 
-```ts
-import {
-  defineConfig,
-  presetAttributify,
-  presetIcons,
-  presetUno,
-  presetWebFonts,
-  // transformerDirectives,
-  // transformerVariantGroup,
-} from 'unocss'
-
-export default defineConfig({
-  shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-    ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'],
-  ],
-  presets: [
-    presetUno(),
-    presetAttributify(),
-    presetIcons({
-      scale: 1.2,
-      warn: true,
-    }),
-    presetWebFonts({
-      fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
-      },
-    }),
-  ],
-  // transformers: [
-  //   transformerDirectives(),
-  //   transformerVariantGroup(),
-  // ],
-})
+```vue
+<button icon-btn @click="toggleDark()">
+  <div dark:i-carbon-moon i-carbon-sun />
+</button>
 ```
 
 ## Config Editor
