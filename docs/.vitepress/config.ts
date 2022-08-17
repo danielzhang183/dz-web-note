@@ -18,6 +18,7 @@ export default defineConfig({
       '/typescript/': sidebarTypescript(),
       '/http/': sidebarHttp(),
       '/tool/': sidebarToolKit(),
+      '/docker/': sidebarDocker(),
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/danielzhang183' },
@@ -40,6 +41,7 @@ function nav() {
     { text: 'Typescript', link: '/typescript/index', activeMatch: '/typescript/' },
     { text: 'HTTP', link: '/http/index', activeMatch: '/http/' },
     { text: 'ToolKit', link: '/tool/index', activeMatch: '/tool/' },
+    { text: 'Docker', link: '/docker/index', activeMatch: '/docker/' },
   ]
 }
 
@@ -112,6 +114,41 @@ function sidebarToolKit() {
       items: [
         { text: 'Vite Plugins', link: '/tool/vite-plugins' },
         { text: 'Recommend Repos', link: '/tool/repos' },
+      ],
+    },
+  ]
+}
+
+function sidebarDocker() {
+  return [
+    {
+      text: 'Basic',
+      collapsible: true,
+      items: [
+        { text: 'What\'s Docker?', link: '/docker/basic/what-docker' },
+        { text: 'Why Docker?', link: '/docker/basic/why-docker' },
+        { text: 'Basic Concept', link: '/docker/basic/concept' },
+      ],
+    },
+    {
+      text: 'Image',
+      collapsible: true,
+      items: [
+        { text: 'Pull Image', link: '/docker/image/pull' },
+        { text: 'List Image', link: '/docker/image/list' },
+        { text: 'Remove Image', link: '/docker/image/remove' },
+      ],
+    },
+    {
+      text: 'Container',
+      collapsible: true,
+      items: [
+        { text: 'Start Container', link: '/docker/container/start' },
+        { text: 'Terminate Container', link: '/docker/container/terminate' },
+        { text: 'Run in background', link: '/docker/container/background' },
+        { text: 'Run into Container', link: '/docker/container/attach' },
+        { text: 'Export & Import Container', link: '/docker/container/import-export' },
+        { text: 'Remove Container', link: '/docker/container/remove' },
       ],
     },
   ]
