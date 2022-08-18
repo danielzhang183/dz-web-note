@@ -29,7 +29,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present Dylan Zhang',
+      copyright: 'Copyright © 2022-present Dylan Zhang',
     },
   },
 })
@@ -149,6 +149,56 @@ function sidebarDocker() {
         { text: 'Run into Container', link: '/docker/container/attach' },
         { text: 'Export & Import Container', link: '/docker/container/import-export' },
         { text: 'Remove Container', link: '/docker/container/remove' },
+      ],
+    },
+    {
+      text: 'Registry',
+      collapsible: true,
+      items: [
+        { text: 'Docker Hub', link: '/docker/container/start' },
+        { text: 'Private Repository', link: '/docker/container/private-repos' },
+      ],
+    },
+    {
+      text: 'Dockerfile',
+      collapsible: true,
+      items: [
+        { text: 'Instructions', link: '/docker/dockerfile/instructions' },
+        { text: 'Best Practices', link: '/docker/dockerfile/best-practices' },
+      ],
+    },
+    {
+      text: 'Volumn',
+      collapsible: true,
+      items: [
+        { text: 'Instructions', link: '/docker/dockerfile/instructions' },
+        { text: 'Best Practices', link: '/docker/dockerfile/best-practices' },
+      ],
+    },
+    {
+      text: 'Network',
+      collapsible: true,
+      items: [
+        { text: 'Instructions', link: '/docker/dockerfile/instructions' },
+        { text: 'Best Practices', link: '/docker/dockerfile/best-practices' },
+      ],
+    },
+    {
+      text: 'F&Q',
+      collapsible: true,
+      items: [
+        { text: 'Image Related', link: '/docker/F&Q/image' },
+        { text: 'Container Related', link: '/docker/F&Q/container' },
+        { text: 'Registry Related', link: '/docker/F&Q/registry' },
+        { text: 'Config Related', link: '/docker/F&Q/config' },
+        { text: 'Others', link: '/docker/F&Q/others' },
+      ],
+    },
+    {
+      text: 'Reference',
+      collapsible: true,
+      items: [
+        { text: 'Official', link: '/docker/reference/official' },
       ],
     },
   ]
