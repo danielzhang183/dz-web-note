@@ -42,7 +42,7 @@ My Repo link is [here](https://github.com/danielzhang183/dz-ts-basics).
 
 ```ts
 interface Box<Type> {
-  contents: Type;
+  contents: Type
 }
 ```
 
