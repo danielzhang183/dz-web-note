@@ -127,7 +127,7 @@ function sidebarDocker() {
       items: [
         { text: 'What\'s Docker?', link: '/docker/basic/what-docker' },
         { text: 'Why Docker?', link: '/docker/basic/why-docker' },
-        { text: 'Basic Concept', link: '/docker/basic/concept' },
+        { text: 'Architecture', link: '/docker/basic/architecture' },
       ],
     },
     {
@@ -187,11 +187,11 @@ function sidebarDocker() {
       text: 'F&Q',
       collapsible: true,
       items: [
-        { text: 'Image Related', link: '/docker/F&Q/image' },
-        { text: 'Container Related', link: '/docker/F&Q/container' },
-        { text: 'Registry Related', link: '/docker/F&Q/registry' },
-        { text: 'Config Related', link: '/docker/F&Q/config' },
-        { text: 'Others', link: '/docker/F&Q/others' },
+        { text: 'Image Related', link: '/docker/FAQ/image' },
+        { text: 'Container Related', link: '/docker/FAQ/container' },
+        { text: 'Registry Related', link: '/docker/FAQ/registry' },
+        { text: 'Config Related', link: '/docker/FAQ/config' },
+        { text: 'Others', link: '/docker/FAQ/others' },
       ],
     },
     {
