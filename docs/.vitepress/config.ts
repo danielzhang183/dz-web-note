@@ -42,6 +42,7 @@ function nav() {
     { text: 'HTTP', link: '/http/index', activeMatch: '/http/' },
     { text: 'ToolKit', link: '/tool/index', activeMatch: '/tool/' },
     { text: 'Docker', link: '/docker/index', activeMatch: '/docker/' },
+    { text: 'Bundler', link: '/bundler/index', activeMatch: '/builder/' },
   ]
 }
 
