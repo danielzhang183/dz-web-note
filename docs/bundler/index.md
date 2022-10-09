@@ -73,7 +73,7 @@ Node allows you to have those two formats in a single package at the same time. 
   "exports": {
     ".": {
       "require": "./index.cjs", // CJS
-      "import": "./index.mjs"   // ESM
+      "import": "./index.mjs" // ESM
     }
   }
 }
@@ -119,6 +119,21 @@ Here is template of `package.json` using `tsup`
     "prepublishOnly": "npm run build"
   }
 }
+```
+
+you can also create `tsup.config.ts` file in the root
+
+```ts
+// ts.config.ts
+import { defineConfig } from 'tsup'
+
+export default defineConfig({
+  entry: ['src/index.ts'],
+  dts: true,
+  format: ['cjs', 'esm'],
+  shims: true,
+  clean: true,
+})
 ```
 
 ## unbind
@@ -193,7 +208,7 @@ Here is template of `package.json` using `unbind`
     "build": "unbuild",
     "dev": "unbuild --stub",
     "prepublishOnly": "npm run build"
-  },
+  }
 }
 ```
 
